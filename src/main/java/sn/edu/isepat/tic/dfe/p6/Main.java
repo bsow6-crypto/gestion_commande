@@ -14,18 +14,17 @@ public class Main {
         try {
             em.getTransaction().begin();
 
-            // ======================================
-            // 1️⃣ Création Utilisateur + Profil
-            // ======================================
+            // Création Utilisateur + Profil
+
             Profil profil1 = new Profil("Développeur Front-end", "77 123 45 67");
             Utilisateur user1 = new Utilisateur("Samba Gaye", "mgage@isepat.edu.sn");
             user1.setProfil(profil1);
 
             em.persist(user1); // CascadeType.ALL persiste aussi le profil
 
-            // ======================================
-            // 2️⃣ Création Categorie + Produits
-            // ======================================
+
+            //  Création Categorie + Produits
+
             Categorie catElectro = new Categorie("Électronique", "Appareils high-tech");
 
             Produit p1 = new Produit("Laptop HP", 899.99, 15);
@@ -38,9 +37,9 @@ public class Main {
 
             em.persist(catElectro); // Cascade persiste automatiquement les produits
 
-            // ======================================
-            // 3️⃣ Création Commande + Produits
-            // ======================================
+
+            //  Création Commande + Produits
+
             Commande commande1 = new Commande();
             commande1.setDateCommande(LocalDate.now());
             commande1.setStatut("EN_ATTENTE");
@@ -53,9 +52,9 @@ public class Main {
 
             em.getTransaction().commit();
 
-            // ======================================
-            // 4️⃣ Affichage test
-            // ======================================
+
+            //  Affichage test
+
             System.out.println("Utilisateur créé : " + user1.getNom() + ", Profil : " + user1.getProfil().getBio());
             System.out.println("Catégorie : " + catElectro.getNom() + ", Produits : " + catElectro.getProduits().size());
             System.out.println("Commande total = " + commande1.getMontantTotal() + " €");

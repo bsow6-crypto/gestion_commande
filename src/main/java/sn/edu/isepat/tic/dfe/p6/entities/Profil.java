@@ -16,7 +16,7 @@ public class Profil {
     private String telephone;
     private String photo;
 
-    @OneToOne(mappedBy = "profil") // côté non propriétaire
+    @OneToOne(mappedBy = "profil")
     private Utilisateur utilisateur;
 
     public Profil() {}
